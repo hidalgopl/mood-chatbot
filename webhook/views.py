@@ -33,5 +33,6 @@ def webhook(request):
                         m = MessageAnalyzer(message=message_text, last_mood=last_mood)
                         response_sent_text, current_mood = m.analyze()
                         send_text_message(recipient_id, response_sent_text)
+                        # store bot current mood in this conversation in cache.
                         cache.set(recipient_id, current_mood)
         return Response(status=200)

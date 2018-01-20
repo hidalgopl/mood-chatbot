@@ -9,6 +9,7 @@ MOOD_MAP = {
 }
 
 RESPONSES = {
+    # feel free to add more responses
     'positive': {
         'up': ["That's fabulous!", "Oh great!", 'Amazing!'],
         'middle': ["Oh, that's really nice!", "Glad to hear it:)", "Sounds good"],
