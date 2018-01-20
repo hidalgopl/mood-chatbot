@@ -122,3 +122,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 SESSION_ENGINE = 'redis_sessions.session'
 SESSION_REDIS_UNIX_DOMAIN_SOCKET_PATH = '/var/run/redis/redis.sock'
+
+
+MESSENGER_WEBHOOK_URL = 'https://graph.facebook.com/v2.6/me/messages?access_token={}'
