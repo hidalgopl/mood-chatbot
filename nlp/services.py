@@ -56,7 +56,10 @@ class MessageAnalyzer:
         elif 'joy' in all_tones:
             return list(filter(lambda d: d['tone_id'] == 'joy', tones_list))[0]
         else:
-            return sorted(tones_list, key=lambda d: d['score'], reverse=True)[0]
+            try:
+                return sorted(tones_list, key=lambda d: d['score'], reverse=True)[0]
+            except IndexError:
+                return {'tone_id': 'joy', 'score': 0.88}
 
     @staticmethod
     def get_mood(tone):
@@ -67,11 +70,15 @@ class MessageAnalyzer:
         return mood, tone['score']
 
     def analyze(self):
+        if self.message.lower() == 'mood':
+            return '{}'.format(self.get_mood_from_rate(self.mood)[0]), self.mood
         response = self.tone_analyzer.tone(self.message, content_type='text/plain')
         tone = self.get_message_main_tone(response['document_tone']['tones'])
         mood, score = self.get_text_mood_and_score(tone)
         tier = self.get_mood_tier(score)
+        print('Bot current mood:', self.mood)
         self.mood += self.get_mood_rate(mood, tier)
+        print('Bot mood after message:', self.mood)
         message = self.get_generic_response(*self.get_mood_from_rate(self.mood))
         print(message)
         return message, self.mood

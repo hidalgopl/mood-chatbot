@@ -1,5 +1,3 @@
-import numpy as np
-
 MOOD_MAP = {
     'joy': 'positive',
     'confident': 'neutral',
@@ -27,31 +25,11 @@ RESPONSES = {
         'down': ["Ok, I can accept this."]
     }
 }
-
-# MOOD_RANGES = {
-#     'positive': {
-#         (1.75, 2.25): 'up',
-#         (1.25, 1.75): 'middle',
-#         (0.75, 1.25): 'down'
-#     },
-#     'neutral': {
-#         (0.25, 0.75): 'up',
-#         (-0.25, 0.25): 'middle',
-#         (-0.75, -0.25): 'down'
-#     },
-#     'negative': {
-#         (-1.25, -0.75): 'up',
-#         (-1.75, -1.25): 'middle',
-#         (-2.25, -1.75): 'down'
-#     }
-# }
-
 MOOD_AVERAGES = {
     ('negative', 'down'): -2,
     ('negative', 'middle'): -1.5,
     ('negative', 'up'): -1,
     ('neutral', 'down'): -0.5,
-    ('neutral', 'middle'): -0.25,
     ('neutral', 'middle'): 0.0,
     ('neutral', 'up'): 0.5,
     ('positive', 'down'): 1,
