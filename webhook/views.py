@@ -36,3 +36,4 @@ def webhook(request):
                         # store bot current mood in this conversation in cache.
                         cache.set(recipient_id, current_mood)
         return Response(status=200)
+
