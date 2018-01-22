@@ -54,9 +54,13 @@ class MessageAnalyzer:
     def get_message_main_tone(tones_list):
         # create a list of all tones in the user's message
         all_tones = [d['tone_id'] for d in tones_list]
-        if 'sadness' in all_tones or 'fear' in all_tones or 'anger' in all_tones:
+        if 'sadness' in all_tones:
             # if one of the tones of user's message is sad, fear or anger, message is negative.
             return list(filter(lambda d: d['tone_id'] == 'sadness', tones_list))[0]
+        elif 'fear' in all_tones:
+            return list(filter(lambda d: d['tone_id'] == 'tone_id', tones_list))[0]
+        elif 'anger' in all_tones:
+            return list(filter(lambda d: d['tone_id'] == 'anger', tones_list))[0]
         elif 'joy' in all_tones:
             return list(filter(lambda d: d['tone_id'] == 'joy', tones_list))[0]
         else:
