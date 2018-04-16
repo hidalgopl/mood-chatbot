@@ -1,3 +1,8 @@
+# About project:
+This is Messenger chat bot integrated with IBM Watson Tone Analyzer. Depending  
+on   whether   the   user   sends   it   a   positive   or   negative   message,   it   will   gradually   get   happier  
+or   sadder,   which   will   determine   its   responses.
+
 # Requirements to run a project:
 1. virtualenv
 
